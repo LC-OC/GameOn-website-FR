@@ -17,7 +17,7 @@
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
-      
+     
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -61,7 +61,7 @@
               action="index.html"
               method="get"
               onsubmit="return validate();"
-              id="form";
+              id="form"
             >
               <div
                 class="formData">
@@ -70,9 +70,12 @@
                   class="text-control"
                   type="text"
                   id="first"
+                  class="input"
                   name="first"
                   minlength="2"
-                /><br>
+                  placeholder="Veuillez renseigner votre prénom"
+                /><br class="br">
+                <p class="error-message-first"></p>
               </div>
               <div
                 class="formData">
@@ -81,8 +84,11 @@
                   class="text-control"
                   type="text"
                   id="last"
+                  class="input"
                   name="last"
+                  placeholder="Veuillez renseigner votre nom de famille"
                 /><br>
+                <p class="error-message-last"></p>
               </div>
               <div
                 class="formData">
@@ -91,8 +97,11 @@
                   class="text-control"
                   type="email"
                   id="email"
+                  class="input"
                   name="email"
-                /><br>
+                  placeholder="Veuillez renseigner votre adresse mail"
+                /><br class="br">
+                <p class="error-message-email"></p>
               </div>
               <div
                 class="formData">
@@ -103,11 +112,13 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <p class="error-message-birthdate"></p>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" class="input" name="quantity" min="0" max="99" placeholder="Veuillez renseigner un chiffre entre 0 et 99">
+                <p class="error-message-quantity"></p>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
