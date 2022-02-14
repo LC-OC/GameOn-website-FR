@@ -169,3 +169,48 @@ const validLastName = function(inputLastName) {
     inputLastNameValidationMessage.classList.add('validation-error');
   }
 }
+
+// Regex et message validation email
+
+form.email.addEventListener('change', function() {
+  validEmail(this);
+});
+
+const validEmail = function(inputEmail) {
+  const emailReg = new RegExp(
+    '[A-z0-9._-]+[@]{1}[a-z0-9._-]+[.]{1}[a-z]{2,10}'
+  );
+
+  let testEmail = emailReg.test(inputEmail.value);
+  console.log(testEmail);
+  let inputEmailValidationMessage = document.querySelector('#email');
+  let p = document.querySelector('.error-message-email');
+  let testInputEmail = inputEmail.value;
+
+  if (testEmail == true) {
+    p.innerHTML = 'Format valide';
+    p.style.color ='#279e7a';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputEmailValidationMessage.classList.remove('validation-error');
+    inputEmailValidationMessage.classList.add('validation-okay');
+  }
+
+  else if (testInputEmail === "") {
+    p.innerHTML = 'Veuillez remplir le champ';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputEmailValidationMessage.classList.remove('validation-okay');
+    inputEmailValidationMessage.classList.add('validation-error');
+  }
+
+  else {
+    p.innerHTML = 'Format non valide: veuillez renseigner un format type "nom@mail.fr"';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputEmailValidationMessage.classList.remove('validation-okay');
+    inputEmailValidationMessage.classList.add('validation-error');
+  }
+}
