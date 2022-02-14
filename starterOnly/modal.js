@@ -106,3 +106,66 @@ const validFirstName = function(inputFirstName) {
     inputFirstNameValidationMessage.classList.add('validation-error');
   }
 };
+
+// Regex et message validation Nom de famille
+
+form.last.addEventListener('change', function() {
+  validLastName(this);
+});
+
+const validLastName = function(inputLastName) {
+  const lastNameReg = new RegExp(
+    '^[A-zÀ-ú- ]{2,30}$'
+  );
+
+  let testLastName = lastNameReg.test(inputLastName.value);
+  console.log(testLastName);
+  let inputLastNameValidationMessage = document.querySelector('#last');
+  let p = document.querySelector('.error-message-last');
+  let testInputLastName = inputLastName.value;
+
+  if (testLastName == true) {
+    p.innerHTML = 'Format du nom valide';
+    p.style.color ='#279e7a';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputLastNameValidationMessage.classList.remove('validation-error');
+    inputLastNameValidationMessage.classList.add('validation-okay');
+  }
+
+  else if (testInputLastName.length == 1) {
+    p.innerHTML = 'Format non valide: nom trop court';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputLastNameValidationMessage.classList.remove('validation-okay');
+    inputLastNameValidationMessage.classList.add('validation-error');
+  }
+
+  else if (testInputLastName.length > 15) {
+    p.innerHTML = 'Format non valide: nom trop long';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputLastNameValidationMessage.classList.remove('validation-okay');
+    inputLastNameValidationMessage.classList.add('validation-error');
+  }
+
+  else if (testInputLastName === "") {
+    p.innerHTML = 'Veuillez remplir le champ';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputLastNameValidationMessage.classList.remove('validation-okay');
+    inputLastNameValidationMessage.classList.add('validation-error');
+  }
+
+  else {
+    p.innerHTML = 'Format non valide: le prénom ne peut contenir de chiffres et/ou de caractères spéciaux';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    br.style.display = "none";
+    inputLastNameValidationMessage.classList.remove('validation-okay');
+    inputLastNameValidationMessage.classList.add('validation-error');
+  }
+}
