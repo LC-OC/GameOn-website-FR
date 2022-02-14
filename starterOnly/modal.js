@@ -25,3 +25,22 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+ /* Date naissance
+ form.birthdate.addEventListener('change', function() {
+  validBirthDate(this);
+});
+
+const validBirthDate = function(inputBirthDate) {
+  let testInputBirthDate = inputBirthDate.value;
+  console.log(testInputBirthDate.length);
+
+  const birthdateReg = new RegExp(
+    '^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$'
+  );
+
+  let testBirthDate = birthdateReg.test(inputBirthDate.value);
+  console.log(testBirthDate);
+
+ 
+}*/
+
