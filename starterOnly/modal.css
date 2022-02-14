@@ -527,3 +527,24 @@ footer {
   }
 }
 
+/***********VALIDATION MESSAGE*************/
+
+.validation-message {
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.validation-okay {
+  border: solid #279e7a;
+}
+
+.validation-error {
+  border: solid #fe142f;
+}
+
+
+::placeholder {
+  font-size: 1rem;
+  font-style: italic;
+
+}
