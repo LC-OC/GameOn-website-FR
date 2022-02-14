@@ -214,3 +214,45 @@ const validEmail = function(inputEmail) {
     inputEmailValidationMessage.classList.add('validation-error');
   }
 }
+
+// Regex et message validation nombre tournoi
+
+form.quantity.addEventListener('change', function() {
+  validQuantity(this);
+});
+
+const validQuantity = function(inputQuantity) {
+  const quantityReg = new RegExp(
+    '^[0-9]{1,2}$'
+  );
+
+  let testQuantity = quantityReg.test(inputQuantity.value);
+  console.log(testQuantity);
+  let inputQuantityValidationMessage = document.querySelector('#quantity');
+  let p = document.querySelector('.error-message-quantity');
+  let testInputQuantity = inputQuantity.value;
+
+  if (testQuantity == true) {
+    p.innerHTML = 'Format valide';
+    p.style.color ='#279e7a';
+    p.classList.add('validation-message');
+    inputQuantityValidationMessage.classList.remove('validation-error');
+    inputQuantityValidationMessage.classList.add('validation-okay');
+  }
+
+  else if (testInputQuantity === "") {
+    p.innerHTML = 'Veuillez remplir le champ';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    inputQuantityValidationMessage.classList.remove('validation-okay');
+    inputQuantityValidationMessage.classList.add('validation-error');
+  }
+
+  else {
+    p.innerHTML = 'Le format est incorrect: veuillez renseigner un chiffre égal ou inférieur à 99';
+    p.style.color ='#fe142f';
+    p.classList.add('validation-message');
+    inputQuantityValidationMessage.classList.remove('validation-okay');
+    inputQuantityValidationMessage.classList.add('validation-error');
+  }
+}
