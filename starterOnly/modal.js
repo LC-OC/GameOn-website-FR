@@ -47,6 +47,15 @@ const validBirthDate = function(inputBirthDate) {
 let form = document.querySelector('#form');
 let br = document.querySelector(".br");
 let btn = document.getElementById('button');
+let tournoiP = document.getElementById('tournoiP');
+let tournoiCheckbox = document.getElementById('tournoi');
+let requiredCheckbox = document.getElementById('checkbox1');
+requiredCheckbox.setAttribute('required', true);
+tournoiP.style.display = 'none';
+tournoiCheckbox.style.display = 'none';
+let radioRequired = document.getElementById('location1');
+radioRequired.setAttribute('required', true);
+
 
 // Regex et message validation Prénom
 
@@ -270,5 +279,22 @@ const validQuantity = function(inputQuantity) {
     p.classList.add('validation-message');
     inputQuantityValidationMessage.classList.remove('validation-okay');
     inputQuantityValidationMessage.classList.add('validation-error');
+  }
+}
+
+// Box checked
+
+let errorCheckbox = document.getElementById('error-checkbox');
+function errorRequiredCheckbox() {
+  if (requiredCheckbox.checked == false) {
+    errorCheckbox.style.display = 'block';
+    br.style.display = 'none';
+    errorCheckbox.innerHTML = "Veuillez cocher cette case";
+    errorCheckbox.classList.add('checkbox-required');
+    btn.classList.add('button-disabled');
+   
+} else {
+  errorCheckbox.style.display = 'none';
+  btn.classList.remove('button-disabled');
   }
 }

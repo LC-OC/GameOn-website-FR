@@ -560,3 +560,28 @@ footer {
   background: rgb(53, 53, 53);
   color: #fff;
 }
+
+/* test pour retirer dans console "An invalid form control with name='' is not focusable" */
+#checkbox1 {
+  display: block !important;
+  opacity: 0;
+  height: 0px;
+}
+
+/* Test pour retirer dans console "An invalid form control with name='' is not focusable" pour radio*/
+
+
+
+#error-checkbox {
+  display: none;
+}
+
+.checkbox-required {
+  color: #fe142f;
+  font-size: 1rem;
+  margin-left: 2rem;
+}
+
+#error-radio {
+  display: none;
+}
