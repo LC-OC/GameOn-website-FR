@@ -263,6 +263,13 @@ const validQuantity = function(inputQuantity) {
     p.classList.add('validation-message');
     inputQuantityValidationMessage.classList.remove('validation-error');
     inputQuantityValidationMessage.classList.add('validation-okay');
+    btn.classList.remove('button-disabled');
+  }
+ 
+  if (testInputQuantity >= 1 && testInputQuantity <= 99) {
+      tournoiP.style.display = 'block';
+      tournoiCheckbox.style.display = 'block';
+      radioRequired.required = true;
   }
 
   else if (testInputQuantity === "") {
@@ -271,7 +278,16 @@ const validQuantity = function(inputQuantity) {
     p.classList.add('validation-message');
     inputQuantityValidationMessage.classList.remove('validation-okay');
     inputQuantityValidationMessage.classList.add('validation-error');
+    tournoiP.style.display = 'none';
+    tournoiCheckbox.style.display = 'none';
+    btn.classList.add('button-disabled');
   }
+ 
+  else if (testInputQuantity == 0) {
+    tournoiP.style.display = 'none';
+    tournoiCheckbox.style.display = 'none';
+}
+
 
   else {
     p.innerHTML = 'Le format est incorrect: veuillez renseigner un chiffre égal ou inférieur à 99';
@@ -279,6 +295,7 @@ const validQuantity = function(inputQuantity) {
     p.classList.add('validation-message');
     inputQuantityValidationMessage.classList.remove('validation-okay');
     inputQuantityValidationMessage.classList.add('validation-error');
+    btn.classList.add('button-disabled');
   }
 }
 
