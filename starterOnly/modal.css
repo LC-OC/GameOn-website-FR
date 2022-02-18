@@ -548,3 +548,15 @@ footer {
   font-style: italic;
 
 }
+
+/* Button Disabled */
+
+#button:disabled {
+  background: rgb(53, 53, 53);
+  color: #fff;
+}
+
+.button-disabled {
+  background: rgb(53, 53, 53);
+  color: #fff;
+}

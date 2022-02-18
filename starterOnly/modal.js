@@ -44,6 +44,10 @@ const validBirthDate = function(inputBirthDate) {
  
 }*/
 
+let form = document.querySelector('#form');
+let br = document.querySelector(".br");
+let btn = document.getElementById('button');
+
 // Regex et message validation Prénom
 
 form.first.addEventListener('change', function() {
@@ -68,6 +72,7 @@ const validFirstName = function(inputFirstName) {
     br.style.display = "none";
     inputFirstNameValidationMessage.classList.remove('validation-error');
     inputFirstNameValidationMessage.classList.add('validation-okay');
+    btn.disabled = false;
   }
 
   else if (testInputFirstName.length == 1) {
@@ -77,6 +82,7 @@ const validFirstName = function(inputFirstName) {
     br.style.display = "none";
     inputFirstNameValidationMessage.classList.remove('validation-okay');
     inputFirstNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 
   else if (testInputFirstName.length > 15) {
@@ -86,6 +92,7 @@ const validFirstName = function(inputFirstName) {
     br.style.display = "none";
     inputFirstNameValidationMessage.classList.remove('validation-okay');
     inputFirstNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 
   else if (testInputFirstName === "") {
@@ -95,6 +102,7 @@ const validFirstName = function(inputFirstName) {
     br.style.display = "none";
     inputFirstNameValidationMessage.classList.remove('validation-okay');
     inputFirstNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 
   else {
@@ -104,6 +112,7 @@ const validFirstName = function(inputFirstName) {
     br.style.display = "none";
     inputFirstNameValidationMessage.classList.remove('validation-okay');
     inputFirstNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 };
 
@@ -123,6 +132,7 @@ const validLastName = function(inputLastName) {
   let inputLastNameValidationMessage = document.querySelector('#last');
   let p = document.querySelector('.error-message-last');
   let testInputLastName = inputLastName.value;
+ 
 
   if (testLastName == true) {
     p.innerHTML = 'Format du nom valide';
@@ -131,6 +141,7 @@ const validLastName = function(inputLastName) {
     br.style.display = "none";
     inputLastNameValidationMessage.classList.remove('validation-error');
     inputLastNameValidationMessage.classList.add('validation-okay');
+    btn.disabled = false;
   }
 
   else if (testInputLastName.length == 1) {
@@ -140,6 +151,7 @@ const validLastName = function(inputLastName) {
     br.style.display = "none";
     inputLastNameValidationMessage.classList.remove('validation-okay');
     inputLastNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 
   else if (testInputLastName.length > 15) {
@@ -149,6 +161,7 @@ const validLastName = function(inputLastName) {
     br.style.display = "none";
     inputLastNameValidationMessage.classList.remove('validation-okay');
     inputLastNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 
   else if (testInputLastName === "") {
@@ -158,6 +171,7 @@ const validLastName = function(inputLastName) {
     br.style.display = "none";
     inputLastNameValidationMessage.classList.remove('validation-okay');
     inputLastNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 
   else {
@@ -167,8 +181,10 @@ const validLastName = function(inputLastName) {
     br.style.display = "none";
     inputLastNameValidationMessage.classList.remove('validation-okay');
     inputLastNameValidationMessage.classList.add('validation-error');
+    btn.disabled = true;
   }
 }
+
 
 // Regex et message validation email
 
