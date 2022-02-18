@@ -60,7 +60,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return validate();" 
               id="form"
             >
               <div
@@ -70,10 +70,10 @@
                   class="text-control"
                   type="text"
                   id="first"
-                  class="input"
                   name="first"
                   minlength="2"
                   placeholder="Veuillez renseigner votre prénom"
+                  required
                 /><br class="br">
                 <p class="error-message-first"></p>
               </div>
@@ -87,6 +87,7 @@
                   class="input"
                   name="last"
                   placeholder="Veuillez renseigner votre nom de famille"
+                  required
                 /><br>
                 <p class="error-message-last"></p>
               </div>
@@ -100,6 +101,7 @@
                   class="input"
                   name="email"
                   placeholder="Veuillez renseigner votre adresse mail"
+                  required
                 /><br class="br">
                 <p class="error-message-email"></p>
               </div>
@@ -111,18 +113,28 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
                 <p class="error-message-birthdate"></p>
               </div>
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" class="input" name="quantity" min="0" max="99" placeholder="Veuillez renseigner un chiffre entre 0 et 99">
+                <input
+                  type="number" 
+                  class="text-control" 
+                  id="quantity" 
+                  class="input" 
+                  name="quantity" 
+                  min="0" max="99" 
+                  placeholder="Veuillez renseigner un chiffre entre 0 et 99"
+                  required >
                 <p class="error-message-quantity"></p>
               </div>
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+              <p class="text-label" id="tournoiP">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData"
+                id="tournoi">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -189,6 +201,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <p id="error-radio" ></p>
               </div>
 
               <div
@@ -197,10 +210,11 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
+                  name="checkbox"
                   checked
                   onclick="errorRequiredCheckbox()"
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1" >
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -208,18 +222,25 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
               <input
                 class="btn-submit"
+                id="button"
                 type="submit"
                 class="button"
                 value="C'est parti"
                 disabled
               />
             </form>
+            <div id="awesome" class="panel" hidden>
+              <h1>Thanks!</h1>
+              <p>Thank you <strong>so</strong> much for agreeing to be
+              awesome today! Now get out there and do awesome things
+              awesomely to make the world more awesome!</p>
+            </div>
           </div>
         </div>
       </div>

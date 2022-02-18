@@ -57,6 +57,27 @@ let radioRequired = document.getElementById('location1');
 radioRequired.setAttribute('required', true);
 
 
+
+ // Date naissance
+form.birthdate.addEventListener('change', function() {
+  validBirthDate(this);
+});
+
+const validBirthDate = function(inputBirthDate) {
+  let testInputBirthDate = inputBirthDate.value;
+  console.log(testInputBirthDate.length);
+
+  const birthdateReg = new RegExp(
+    '^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$'
+  );
+
+  let testBirthDate = birthdateReg.test(inputBirthDate.value);
+  console.log(testBirthDate);
+
+}
+
+
+
 // Regex et message validation Prénom
 
 form.first.addEventListener('change', function() {
@@ -194,7 +215,6 @@ const validLastName = function(inputLastName) {
   }
 }
 
-
 // Regex et message validation email
 
 form.email.addEventListener('change', function() {
@@ -219,6 +239,7 @@ const validEmail = function(inputEmail) {
     br.style.display = "none";
     inputEmailValidationMessage.classList.remove('validation-error');
     inputEmailValidationMessage.classList.add('validation-okay');
+    btn.classList.remove('button-disabled');
   }
 
   else if (testInputEmail === "") {
@@ -228,6 +249,7 @@ const validEmail = function(inputEmail) {
     br.style.display = "none";
     inputEmailValidationMessage.classList.remove('validation-okay');
     inputEmailValidationMessage.classList.add('validation-error');
+    btn.classList.add('button-disabled');
   }
 
   else {
@@ -237,6 +259,7 @@ const validEmail = function(inputEmail) {
     br.style.display = "none";
     inputEmailValidationMessage.classList.remove('validation-okay');
     inputEmailValidationMessage.classList.add('validation-error');
+    btn.classList.add('button-disabled');
   }
 }
 
@@ -298,6 +321,7 @@ const validQuantity = function(inputQuantity) {
     btn.classList.add('button-disabled');
   }
 }
+
 
 // Box checked
 
