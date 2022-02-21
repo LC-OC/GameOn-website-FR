@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -561,6 +560,7 @@ footer {
   color: #fff;
 }
 
+
 /* test pour retirer dans console "An invalid form control with name='' is not focusable" */
 #checkbox1 {
   display: block !important;
@@ -570,7 +570,9 @@ footer {
 
 /* Test pour retirer dans console "An invalid form control with name='' is not focusable" pour radio*/
 
-
+input[type="radio"] {
+  opacity: 0;
+}
 
 #error-checkbox {
   display: none;

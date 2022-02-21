@@ -71,7 +71,6 @@
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
                   placeholder="Veuillez renseigner votre prénom"
                   required
                 /><br class="br">
@@ -113,9 +112,10 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  onchange="validBirthDate()"
                   required
                 /><br>
-                <p class="error-message-birthdate"></p>
+                <p id="error-message-birthdate"></p>
               </div>
               <div
                 class="formData">
@@ -235,12 +235,12 @@
                 disabled
               />
             </form>
+            <!--
             <div id="awesome" class="panel" hidden>
-              <h1>Thanks!</h1>
-              <p>Thank you <strong>so</strong> much for agreeing to be
-              awesome today! Now get out there and do awesome things
-              awesomely to make the world more awesome!</p>
+              <h1>message validation</h1>
+              <p>message validation</p>
             </div>
+          -->
           </div>
         </div>
       </div>

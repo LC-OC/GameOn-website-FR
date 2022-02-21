@@ -25,25 +25,6 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
- /* Date naissance
- form.birthdate.addEventListener('change', function() {
-  validBirthDate(this);
-});
-
-const validBirthDate = function(inputBirthDate) {
-  let testInputBirthDate = inputBirthDate.value;
-  console.log(testInputBirthDate.length);
-
-  const birthdateReg = new RegExp(
-    '^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$'
-  );
-
-  let testBirthDate = birthdateReg.test(inputBirthDate.value);
-  console.log(testBirthDate);
-
- 
-}*/
-
 let form = document.querySelector('#form');
 let br = document.querySelector(".br");
 let btn = document.getElementById('button');
@@ -54,27 +35,6 @@ requiredCheckbox.setAttribute('required', true);
 tournoiP.style.display = 'none';
 tournoiCheckbox.style.display = 'none';
 let radioRequired = document.getElementById('location1');
-radioRequired.setAttribute('required', true);
-
-
-
- // Date naissance
-form.birthdate.addEventListener('change', function() {
-  validBirthDate(this);
-});
-
-const validBirthDate = function(inputBirthDate) {
-  let testInputBirthDate = inputBirthDate.value;
-  console.log(testInputBirthDate.length);
-
-  const birthdateReg = new RegExp(
-    '^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$'
-  );
-
-  let testBirthDate = birthdateReg.test(inputBirthDate.value);
-  console.log(testBirthDate);
-
-}
 
 
 
@@ -292,7 +252,6 @@ const validQuantity = function(inputQuantity) {
   if (testInputQuantity >= 1 && testInputQuantity <= 99) {
       tournoiP.style.display = 'block';
       tournoiCheckbox.style.display = 'block';
-      radioRequired.required = true;
   }
 
   else if (testInputQuantity === "") {
@@ -339,3 +298,30 @@ function errorRequiredCheckbox() {
   btn.classList.remove('button-disabled');
   }
 }
+
+
+// Birthdate validation
+
+function validBirthDate() {
+  let birthdate = document.getElementById("birthdate").value;
+  let birthdateP = document.getElementById('error-message-birthdate');
+  let inputBirthdateValidationMessage = document.getElementById('birthdate');
+  if (birthdate.match(/^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/)) {
+    birthdateP.style.color ='#279e7a';
+    birthdateP.innerHTML = "Format de date correct";
+    birthdateP.classList.add('validation-message');
+    inputBirthdateValidationMessage.classList.remove('validation-error');
+    inputBirthdateValidationMessage.classList.add('validation-okay');
+    btn.classList.remove('button-disabled');
+  } else {
+    birthdateP.style.color ='#fe142f';
+    birthdateP.innerHTML = "Format de date incorrect";
+    birthdateP.classList.add('validation-message');
+    inputBirthdateValidationMessage.classList.remove('validation-okay');
+    inputBirthdateValidationMessage.classList.add('validation-error');
+  }
+}
+
+
+
+// test radio checkbox
