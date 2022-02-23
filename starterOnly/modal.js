@@ -32,8 +32,6 @@ function closeModal() {
 let form = document.querySelector('#form');
 let br = document.querySelector(".br");
 let btn = document.getElementById('button');
-let tournoiP = document.getElementById('tournoiP');
-let tournoiCheckbox = document.getElementById('tournoi');
 let requiredCheckbox = document.getElementById('checkbox1');
 requiredCheckbox.setAttribute('required', true);
 
@@ -240,8 +238,6 @@ const validQuantity = function(inputQuantity) {
     p.classList.add('validation-message');
     inputQuantityValidationMessage.classList.remove('validation-okay');
     inputQuantityValidationMessage.classList.add('validation-error');
-    tournoiP.style.display = 'none';
-    tournoiCheckbox.style.display = 'none';
     btn.classList.add('button-disabled');
   }
 
