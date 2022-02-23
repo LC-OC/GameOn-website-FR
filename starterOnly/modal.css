@@ -562,17 +562,11 @@ footer {
 }
 
 
-/* test pour retirer dans console "An invalid form control with name='' is not focusable" */
+/* stop error "An invalid form control with name='' is not focusable" */
 #checkbox1 {
   display: block !important;
   opacity: 0;
   height: 0px;
-}
-
-/* Test pour retirer dans console "An invalid form control with name='' is not focusable" pour radio*/
-
-input[type="radio"] {
-  opacity: 0;
 }
 
 #error-checkbox {
@@ -583,10 +577,6 @@ input[type="radio"] {
   color: #fe142f;
   font-size: 1rem;
   margin-left: 2rem;
-}
-
-#error-radio {
-  display: none;
 }
 
 .panel {
