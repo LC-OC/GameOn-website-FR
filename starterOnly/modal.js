@@ -36,9 +36,6 @@ let tournoiP = document.getElementById('tournoiP');
 let tournoiCheckbox = document.getElementById('tournoi');
 let requiredCheckbox = document.getElementById('checkbox1');
 requiredCheckbox.setAttribute('required', true);
-tournoiP.style.display = 'none';
-tournoiCheckbox.style.display = 'none';
-let radioRequired = document.getElementById('location1');
 
 
 // Regex and validation first name
@@ -235,11 +232,6 @@ const validQuantity = function(inputQuantity) {
     inputQuantityValidationMessage.classList.remove('validation-error');
     inputQuantityValidationMessage.classList.add('validation-okay');
     btn.classList.remove('button-disabled');
-  }
- 
-  if (testInputQuantity >= 0 && testInputQuantity <= 99) {
-      tournoiP.style.display = 'block';
-      tournoiCheckbox.style.display = 'block';
   }
 
   else if (testInputQuantity === "") {
