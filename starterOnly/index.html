@@ -60,8 +60,8 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();" 
               id="form"
+              onsubmit="validate(); return false"
             >
               <div
                 class="formData">
@@ -141,6 +141,7 @@
                   id="location1"
                   name="location"
                   value="New York"
+                  checked
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -235,12 +236,12 @@
                 disabled
               />
             </form>
-            <!--
-            <div id="awesome" class="panel" hidden>
-              <h1>message validation</h1>
-              <p>message validation</p>
+            <div id="validation" class="panel">
+              <section id="validation-message">
+                <h2 id="title-validation">Merci pour votre inscription</h2>
+                <button class="btn-close" onclick="closeValidation()">Fermer</button>
+              </section>
             </div>
-          -->
           </div>
         </div>
       </div>

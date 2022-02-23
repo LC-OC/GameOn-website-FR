@@ -15,15 +15,19 @@ const formData = document.querySelectorAll(".formData");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-}
+};
 
-// close modal form
+// ------------------------------------------ //
+
+// Close modal
 function closeModal() {
   modalbg.style.display = "none";
-}
+};
+
 
 let form = document.querySelector('#form');
 let br = document.querySelector(".br");
@@ -37,8 +41,7 @@ tournoiCheckbox.style.display = 'none';
 let radioRequired = document.getElementById('location1');
 
 
-
-// Regex et message validation Prénom
+// Regex and validation first name
 
 form.first.addEventListener('change', function() {
   validFirstName(this);
@@ -50,16 +53,12 @@ const validFirstName = function(inputFirstName) {
   );
 
   let testFirstName = firstNameReg.test(inputFirstName.value);
-  console.log(testFirstName);
   let inputFirstNameValidationMessage = document.querySelector('#first');
   let p = document.querySelector('.error-message-first');
   let testInputFirstName = inputFirstName.value;
 
   if (testFirstName == true) {
-    p.innerHTML = 'Format du prénom valide';
-    p.style.color ='#279e7a';
-    p.classList.add('validation-message');
-    br.style.display = "none";
+    p.innerHTML = "";
     inputFirstNameValidationMessage.classList.remove('validation-error');
     inputFirstNameValidationMessage.classList.add('validation-okay');
     btn.disabled = false;
@@ -106,7 +105,7 @@ const validFirstName = function(inputFirstName) {
   }
 };
 
-// Regex et message validation Nom de famille
+// Regex and validate last name
 
 form.last.addEventListener('change', function() {
   validLastName(this);
@@ -118,17 +117,13 @@ const validLastName = function(inputLastName) {
   );
 
   let testLastName = lastNameReg.test(inputLastName.value);
-  console.log(testLastName);
   let inputLastNameValidationMessage = document.querySelector('#last');
   let p = document.querySelector('.error-message-last');
   let testInputLastName = inputLastName.value;
  
 
   if (testLastName == true) {
-    p.innerHTML = 'Format du nom valide';
-    p.style.color ='#279e7a';
-    p.classList.add('validation-message');
-    br.style.display = "none";
+    p.innerHTML = "";
     inputLastNameValidationMessage.classList.remove('validation-error');
     inputLastNameValidationMessage.classList.add('validation-okay');
     btn.disabled = false;
@@ -175,7 +170,7 @@ const validLastName = function(inputLastName) {
   }
 }
 
-// Regex et message validation email
+// Regex and validation email
 
 form.email.addEventListener('change', function() {
   validEmail(this);
@@ -187,16 +182,12 @@ const validEmail = function(inputEmail) {
   );
 
   let testEmail = emailReg.test(inputEmail.value);
-  console.log(testEmail);
   let inputEmailValidationMessage = document.querySelector('#email');
   let p = document.querySelector('.error-message-email');
   let testInputEmail = inputEmail.value;
 
   if (testEmail == true) {
-    p.innerHTML = 'Format valide';
-    p.style.color ='#279e7a';
-    p.classList.add('validation-message');
-    br.style.display = "none";
+    p.innerHTML = "";
     inputEmailValidationMessage.classList.remove('validation-error');
     inputEmailValidationMessage.classList.add('validation-okay');
     btn.classList.remove('button-disabled');
@@ -223,7 +214,7 @@ const validEmail = function(inputEmail) {
   }
 }
 
-// Regex et message validation nombre tournoi
+// Regex and validation Quantity
 
 form.quantity.addEventListener('change', function() {
   validQuantity(this);
@@ -235,21 +226,18 @@ const validQuantity = function(inputQuantity) {
   );
 
   let testQuantity = quantityReg.test(inputQuantity.value);
-  console.log(testQuantity);
   let inputQuantityValidationMessage = document.querySelector('#quantity');
   let p = document.querySelector('.error-message-quantity');
   let testInputQuantity = inputQuantity.value;
 
   if (testQuantity == true) {
-    p.innerHTML = 'Format valide';
-    p.style.color ='#279e7a';
-    p.classList.add('validation-message');
+    p.innerHTML = "";
     inputQuantityValidationMessage.classList.remove('validation-error');
     inputQuantityValidationMessage.classList.add('validation-okay');
     btn.classList.remove('button-disabled');
   }
  
-  if (testInputQuantity >= 1 && testInputQuantity <= 99) {
+  if (testInputQuantity >= 0 && testInputQuantity <= 99) {
       tournoiP.style.display = 'block';
       tournoiCheckbox.style.display = 'block';
   }
@@ -264,12 +252,6 @@ const validQuantity = function(inputQuantity) {
     tournoiCheckbox.style.display = 'none';
     btn.classList.add('button-disabled');
   }
- 
-  else if (testInputQuantity == 0) {
-    tournoiP.style.display = 'none';
-    tournoiCheckbox.style.display = 'none';
-}
-
 
   else {
     p.innerHTML = 'Le format est incorrect: veuillez renseigner un chiffre égal ou inférieur à 99';
@@ -282,14 +264,14 @@ const validQuantity = function(inputQuantity) {
 }
 
 
-// Box checked
+// Box checked - error message if not check
 
 let errorCheckbox = document.getElementById('error-checkbox');
 function errorRequiredCheckbox() {
   if (requiredCheckbox.checked == false) {
     errorCheckbox.style.display = 'block';
     br.style.display = 'none';
-    errorCheckbox.innerHTML = "Veuillez cocher cette case";
+    errorCheckbox.innerHTML = "Veuillez accepter les conditions d'utilisation.";
     errorCheckbox.classList.add('checkbox-required');
     btn.classList.add('button-disabled');
    
@@ -299,8 +281,7 @@ function errorRequiredCheckbox() {
   }
 }
 
-
-// Birthdate validation
+// Validate Birthdate
 
 function validBirthDate() {
   let birthdate = document.getElementById("birthdate").value;
@@ -323,5 +304,17 @@ function validBirthDate() {
 }
 
 
+let messageAfterSubmit = document.getElementById("validation");
 
-// test radio checkbox
+// Validation message after submit
+
+function validate() {
+  form.style.display = "none";
+  messageAfterSubmit.classList.add("validate-appear");
+}
+ 
+// Close modale validation message
+
+function closeValidation() {
+  modalbg.style.display = "none";
+}

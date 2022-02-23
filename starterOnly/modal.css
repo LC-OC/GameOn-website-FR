@@ -96,7 +96,6 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 } 
 
@@ -225,7 +224,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
+/*
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
@@ -321,7 +320,8 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.btn-close {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -444,6 +444,7 @@ input[data-error]::after {
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
+  margin-right: 3rem;
 }
 .btn-signup {
   outline: none;
@@ -494,7 +495,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 4.1rem;
     white-space: normal;
   }
   .hero-text {
@@ -586,4 +587,31 @@ input[type="radio"] {
 
 #error-radio {
   display: none;
+}
+
+.panel {
+  display: none;
+}
+
+.validate-appear {
+  display: block;
+}
+
+#validation-message {
+  margin: 3rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#title-validation {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: lighter;
+  margin-top: 10rem;
+}
+
+.btn-close {
+  margin-bottom: -3rem;
 }
